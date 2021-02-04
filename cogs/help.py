@@ -36,6 +36,9 @@ class HelpCog(commands.Cog):
                                                   '`tl` - Gleichwertig zu `translate`\n'
                                                   '`count` - Zeigt die aktuelle Mitgliederzahl von diesem Server\n'
                                                   '`calc` - Führt eine Rechnung aus\n'
+                                                  '`rps` - Spiele Schere, Stein, Papier\n'
+                                                  '`ssp` - Gleichwertig zu `rps`\n'
+                                                  '`schere-stein-papier` - Gleichwertig zu `rps`\n'
                                                   #'`join` - Spielt Radio in einem Voicechannel\n'
                                                   #'`leave` -  Verlässt den Voicechannel'
                            ,inline=False)

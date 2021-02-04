@@ -23,7 +23,7 @@ from cogs.modnews import ModNewsCog
 #from cogs.musicstream import MusicStreamCog
 from cogs.calc import CalcCog
 from cogs.dadbot import DadBotCog
-from cogs.rockpaperscissor import RockPaperScissorCog
+from cogs.rockpaperscissors import RockPaperScissorCog
 
 COGS = [
     ClearCog,

@@ -38,7 +38,8 @@ class HelpCog(commands.Cog):
                                                   '`calc` - Führt eine Rechnung aus\n'
                                                   '`rps` - Spiele Schere, Stein, Papier\n'
                                                   '`ssp` - Gleichwertig zu `rps`\n'
-                                                  '`schere-stein-papier` - Gleichwertig zu `rps`\n'
+                                                  '`schere-stein-papier` - Gleichwertig zu `rps`\n
+                                                  '`whichmovie` - Du weißt nicht, welchen Film du gucken sollst? Dieser Befehl hilft dir\n'
                                                   #'`join` - Spielt Radio in einem Voicechannel\n'
                                                   #'`leave` -  Verlässt den Voicechannel'
                            ,inline=False)

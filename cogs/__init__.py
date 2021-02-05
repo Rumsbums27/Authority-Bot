@@ -24,6 +24,7 @@ from cogs.modnews import ModNewsCog
 from cogs.calc import CalcCog
 from cogs.dadbot import DadBotCog
 from cogs.rockpaperscissors import RockPaperScissorCog
+from cogs.whichmovie import WhichMovieCog
 
 COGS = [
     ClearCog,
@@ -51,5 +52,6 @@ COGS = [
     #MusicStreamCog,
     CalcCog,
     DadBotCog,
-    RockPaperScissorCog
+    RockPaperScissorCog,
+    WhichMovieCog
 ]

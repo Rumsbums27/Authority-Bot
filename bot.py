@@ -1,4 +1,6 @@
 import asyncio
+import os
+
 import discord
 from discord import Intents
 from discord.ext import commands
@@ -30,20 +32,20 @@ for cogs in COGS:
     bot.add_cog(cogs(bot))
     print(f'Successfully activated {cogs}')
 
-@bot.event
-async def on_member_join(member):
-    cluster = MongoClient('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    db = cluster['authority']
-    collection = db['points']
-    check = collection.find_one({'_id': f'{member}'})
-    if check:
-        point = collection.find({'_id': f'{member}'})
-        for x in point:
-            current_points = 500
-            collection.update_one({'_id': f'{member}'}, {'$set': {'points': current_points}})
-
-    else:
-        collection.insert_one({'_id': f'{member}', 'points': 500})
+#@bot.event
+#async def on_member_join(member):
+#    cluster = MongoClient(os.environ['MONGO'])
+#    db = cluster['authority']
+#    collection = db['points']
+#    check = collection.find_one({'_id': f'{member}'})
+#    if check:
+#        point = collection.find({'_id': f'{member}'})
+#        for x in point:
+#            current_points = 500
+#            collection.update_one({'_id': f'{member}'}, {'$set': {'points': current_points}})
+#
+#    else:
+#        collection.insert_one({'_id': f'{member}', 'points': 500})
 
 @bot.event
 async def on_guild_join(guild):
@@ -93,4 +95,4 @@ async def prefix_error(ctx, error):
     if isinstance(error,commands.MissingRequiredArgument):
         await ctx.send(embed=prefixerr)
 
-bot.run("TOKEN")
+bot.run(os.environ["TOKEN"])

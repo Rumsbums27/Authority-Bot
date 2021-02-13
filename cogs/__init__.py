@@ -53,5 +53,5 @@ COGS = [
     CalcCog,
     DadBotCog,
     RockPaperScissorCog,
-    WhichMovieCog
+    WhichMovieCog,
 ]

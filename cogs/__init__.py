@@ -20,7 +20,7 @@ from cogs.voice import VoiceCog
 from cogs.warn import WarnCog
 from cogs.points import PointsCog
 from cogs.modnews import ModNewsCog
-#from cogs.musicstream import MusicStreamCog
+from cogs.musicstream import MusicStreamCog
 from cogs.calc import CalcCog
 from cogs.dadbot import DadBotCog
 from cogs.rockpaperscissors import RockPaperScissorCog
@@ -49,9 +49,13 @@ COGS = [
     WarnCog,
     PointsCog,
     ModNewsCog,
-    #MusicStreamCog,
+    MusicStreamCog,
     CalcCog,
     DadBotCog,
     RockPaperScissorCog,
     WhichMovieCog,
+]
+
+disabled = [
+    TranslateCog
 ]

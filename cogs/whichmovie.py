@@ -7,7 +7,7 @@ class WhichMovieCog(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def wichmovie(self,ctx):
+    async def whichmovie(self,ctx):
         movies = ["Die Reise zur geheimnisvollen Insel",
                   "Die Legende von Aang",
                   "Malibu rescue",

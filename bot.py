@@ -1,10 +1,9 @@
 import asyncio
 import os
-
 import discord
 from discord import Intents
 from discord.ext import commands
-from cogs import COGS
+from cogs import COGS, disabled
 from pymongo import MongoClient
 import json
 
@@ -12,6 +11,11 @@ def get_prefix(guild, message):
     with open('prefixes.json', 'r') as prefix:
         prefixes = json.load(prefix)
     return prefixes[str(message.guild.id)]
+
+def get_config(config):
+    with open('config.json','r') as data:
+        configs = json.load(data)
+    return configs[str(config)]
 
 bot = commands.Bot(command_prefix=get_prefix,intents=Intents.all())
 bot.remove_command('help')
@@ -29,8 +33,11 @@ async def status_task():
         await asyncio.sleep(5)
 
 for cogs in COGS:
-    bot.add_cog(cogs(bot))
-    print(f'Successfully activated {cogs}')
+    if cogs in disabled:
+        pass
+    else:
+        bot.add_cog(cogs(bot))
+        print(f'Successfully activated {cogs}')
 
 #@bot.event
 #async def on_member_join(member):
@@ -95,4 +102,4 @@ async def prefix_error(ctx, error):
     if isinstance(error,commands.MissingRequiredArgument):
         await ctx.send(embed=prefixerr)
 
-bot.run(os.environ["TOKEN"])
+bot.run(get_config('token'))

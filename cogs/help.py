@@ -52,5 +52,4 @@ class HelpCog(commands.Cog):
                                                   '`warn` - Verwarnt einen User\n'
                                                   '`points` - Fügt einem User Punkte hinzu'
                            ,inline=False)
-        helpmess.add_field(name='Bot-Owner',value='`prefix` - Ändert das Serverprefix')
         await ctx.send(embed=helpmess)

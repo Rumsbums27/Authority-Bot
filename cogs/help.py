@@ -40,8 +40,9 @@ class HelpCog(commands.Cog):
                                                   '`ssp` - Gleichwertig zu `rps`\n'
                                                   '`schere-stein-papier` - Gleichwertig zu `rps`\n'
                                                   '`whichmovie` - Du weißt nicht, welchen Film du gucken sollst? Dieser Befehl hilft dir\n'
+                                                  '`voice` - Läd jemanden zum Private Voice Channel ein\n'
                                                   #'`join` - Spielt Radio in einem Voicechannel\n'
-                                                  #'`leave` -  Verlässt den Voicechannel'
+                                                  #'`leave` -  Verlässt den Voicechannel\n'
                            ,inline=False)
         helpmess.add_field(name='Moderator',value='`clear` - Löscht eine größere Anzahl an Nachrichten\n'
                                                   '`ban` - Bannt einen User\n'

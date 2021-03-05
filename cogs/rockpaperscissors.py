@@ -2,13 +2,14 @@ import discord
 from discord.ext import commands
 from random import choice
 
+
 class RockPaperScissorCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['ssp','schere-stein-papier'])
-    async def rps(self,ctx,arg):
-        computer = choice(['Schere','Stein','Papier'])
+    @commands.command(aliases=['ssp', 'schere-stein-papier'])
+    async def rps(self, ctx, arg):
+        computer = choice(['Schere', 'Stein', 'Papier'])
 
         win = discord.Embed(
             title='Win',
@@ -54,8 +55,9 @@ class RockPaperScissorCog(commands.Cog):
 
     @rps.error
     async def roulette_error(self, ctx, error):
-        rpserr = discord.Embed(title='Error',
-                                    description='Fehlendes Argument. `rps <Hand>`',
-                                    color=0xff0000)
+        # Embed for error ,,Missing Parameter''
+        missing_param_message = discord.Embed(title='Error',
+                               description='Fehlendes Argument. `rps <Hand>`',
+                               color=0xff0000)
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(embed=rpserr)
+            await ctx.send(embed=missing_param_message)

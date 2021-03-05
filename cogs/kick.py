@@ -22,13 +22,15 @@ class KickCog(commands.Cog):
 
     @kick.error
     async def kick_error(self,ctx, error):
-        kickerr1 = discord.Embed(title='Error',
+        # Embed for error ,,Member not found'' 
+        not_found_message = discord.Embed(title='Error',
                                  description='Member konnte nicht gefunden werden.',
                                  color=0xff0000)
-        kickerr2 = discord.Embed(title='Error',
+        # Embed for error ,,Missing Parameter''
+        missing_param_message = discord.Embed(title='Error',
                                  description='Fehlendes Argument. `kick <Member>`',
                                  color=0xff0000)
         if isinstance(error, commands.BadArgument):
-            await ctx.send(embed=kickerr1)
+            await ctx.send(embed=not_found_message)
         elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(embed=kickerr2)
+            await ctx.send(embed=missing_param_message)

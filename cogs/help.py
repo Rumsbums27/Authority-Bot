@@ -16,10 +16,10 @@ class HelpCog(commands.Cog):
 
         prefix = get_prefix(message=ctx, guild=None)
 
-        helpmess = discord.Embed(title='Help',
+        help_message = discord.Embed(title='Help',
                                  color=0x00ffff)
-        helpmess.add_field(name='Command Prefix', value=f'`{prefix}`',inline=False)
-        helpmess.add_field(name='Commands', value='`status` -  Ändert den Status im Nickname\n'
+        help_message.add_field(name='Command Prefix', value=f'`{prefix}`',inline=False)
+        help_message.add_field(name='Commands', value='`status` -  Ändert den Status im Nickname\n'
                                                   '`nickex` - Gleichwertig zu `status`\n'
                                                   '`userinfo` - Gibt eine Userinfo über den genannten User aus\n'
                                                   '`stats` - Gleichwertig zu `userinfo`\n'
@@ -44,7 +44,7 @@ class HelpCog(commands.Cog):
                                                   #'`join` - Spielt Radio in einem Voicechannel\n'
                                                   #'`leave` -  Verlässt den Voicechannel\n'
                            ,inline=False)
-        helpmess.add_field(name='Moderator',value='`clear` - Löscht eine größere Anzahl an Nachrichten\n'
+        help_message.add_field(name='Moderator',value='`clear` - Löscht eine größere Anzahl an Nachrichten\n'
                                                   '`ban` - Bannt einen User\n'
                                                   '`kick` - Kickt einen User\n'
                                                   '`block` - Blockt einen User\n'
@@ -52,4 +52,4 @@ class HelpCog(commands.Cog):
                                                   '`warn` - Verwarnt einen User\n'
                                                   '`points` - Fügt einem User Punkte hinzu'
                            ,inline=False)
-        await ctx.send(embed=helpmess)
+        await ctx.send(embed=help_message)

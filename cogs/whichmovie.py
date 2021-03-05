@@ -2,12 +2,13 @@ from random import choice
 import discord
 from discord.ext import commands
 
+
 class WhichMovieCog(commands.Cog):
-    def __init__(self,bot):
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
-    async def whichmovie(self,ctx):
+    async def whichmovie(self, ctx):
         movies = ["Die Reise zur geheimnisvollen Insel",
                   "Die Legende von Aang",
                   "Malibu rescue",
@@ -53,7 +54,7 @@ class WhichMovieCog(commands.Cog):
                   "London has fallen",
                   "Hitman",
                   "The hard way",
-                  "Wild card"
+                  "Wild card",
                   "6 Underground",
                   "Takers",
                   "Spenser",
@@ -73,7 +74,7 @@ class WhichMovieCog(commands.Cog):
                   "John Wick",
                   "John Wick 2",
                   "Jack Ryan",
-                  "Eagle Eye"
+                  "Eagle Eye",
                   "Gods of Egypt",
                   "The Equalizer",
                   "The old Guard",
@@ -92,7 +93,7 @@ class WhichMovieCog(commands.Cog):
                   "I,Robot",
                   "Sucide Squad",
                   "Aquaman",
-                  "Pixels"
+                  "Pixels",
                   "Bad Boys",
                   "Bad Boys 2",
                   "Fast and Furious",
@@ -111,7 +112,7 @@ class WhichMovieCog(commands.Cog):
                   "Transformers",
                   "Transformers 3",
                   "Transformers-The last Knight",
-                  "Godzilla"
+                  "Godzilla",
                   "Godzilla 2",
                   "Hulk",
                   "Man of steel",
@@ -122,14 +123,14 @@ class WhichMovieCog(commands.Cog):
                   "Maze Runner 2",
                   "Maze Runner 3",
                   "Iron Man",
-                  "Iron Man 2"
+                  "Iron Man 2",
                   "Iron Man 3",
                   "Fack ju Göhte",
                   "Fack ju Göhte 2",
                   "Kindsköpfe",
                   "Honig im Kopf",
                   "Shazam",
-                  "Deadpool"
+                  "Deadpool",
                   "Kung Fu Panda",
                   "Kung Fu Panda 2",
                   "Ziemlich beste Freunde",
@@ -145,7 +146,7 @@ class WhichMovieCog(commands.Cog):
                   "Hangover 3",
                   "Ninja Assassin",
                   "The dark Knight",
-                  "Matrix"
+                  "Matrix",
                   "Matrix Revolutions",
                   "Matrix Reloadet",
                   "Lucy",
@@ -160,7 +161,7 @@ class WhichMovieCog(commands.Cog):
                   "King Arthur",
                   "Die 5. Welle"]
         movie = choice(movies)
-        wichmoviemess = discord.Embed(title="Was soll ich gucken?",
-                                      description="Hier ein Vorschlag. " + movie,
-                                      color=0x00ffff)
-        await ctx.send(embed=wichmoviemess)
+        movie_embed = discord.Embed(title="Was soll ich gucken?",
+                                    description="Hier ein Vorschlag: " + movie,
+                                    color=0x00ffff)
+        await ctx.send(embed=movie_embed)

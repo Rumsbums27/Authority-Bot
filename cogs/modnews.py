@@ -12,9 +12,9 @@ class ModNewsCog(commands.Cog):
         news = self.bot.get_channel(id=798851979698634753)
 
         if ctx.channel == mod:
-            embed = discord.Embed(title='Authority News',
+            news_embed = discord.Embed(title='Authority News',
                                   description=ctx.content,
                                   color=0x00ffff)
-            embed.set_footer(text="(c) 2020 9k.ist.abgehoben")
-            mess = await news.send(embed=embed)
+            news_embed.set_footer(text="(c) 2020 9k.ist.abgehoben")
+            mess = await news.send(embed=news_embed)
             await mess.publish()

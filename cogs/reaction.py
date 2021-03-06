@@ -1,33 +1,51 @@
 import discord
 from discord.ext import commands
 
+
 class ReactionCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_raw_reaction_add(self,payload):
+    async def on_raw_reaction_add(self, payload):
         if payload.channel_id == 747888697747308634:
-            mitglied = discord.utils.get(payload.member.guild.roles, id=559350903141040141)
+            mitglied = discord.utils.get(
+                payload.member.guild.roles, id=559350903141040141)
             if str(payload.emoji) == "✅":
                 await payload.member.add_roles(mitglied)
         elif payload.channel_id == 710116001970257973:
-            amongus = discord.utils.get(payload.member.guild.roles, id=800640785863278643)
-            osu = discord.utils.get(payload.member.guild.roles, id=799646308285284352)
-            lol = discord.utils.get(payload.member.guild.roles, id=710089814711468083)
-            lor = discord.utils.get(payload.member.guild.roles, id=710090605031718993)
-            tft = discord.utils.get(payload.member.guild.roles, id=710222045824286721)
-            wr = discord.utils.get(payload.member.guild.roles, id=710222629931581452)
-            krunker = discord.utils.get(payload.member.guild.roles, id=710222952037089399)
-            mc = discord.utils.get(payload.member.guild.roles, id=710494243948462271)
-            paladins = discord.utils.get(payload.member.guild.roles, id=713090663289323611)
-            valorant = discord.utils.get(payload.member.guild.roles, id=718191255032561805)
-            csgo = discord.utils.get(payload.member.guild.roles, id=718191138699214869)
-            gta = discord.utils.get(payload.member.guild.roles, id=749553157427691580)
-            rainbow = discord.utils.get(payload.member.guild.roles, id=749553249086079017)
-            rl = discord.utils.get(payload.member.guild.roles, id=749553329943871631)
-            xxx = discord.utils.get(payload.member.guild.roles, id=710498322531745803)
-            musik = discord.utils.get(payload.member.guild.roles, id=716022697464955043)
+            amongus = discord.utils.get(
+                payload.member.guild.roles, id=800640785863278643)
+            osu = discord.utils.get(
+                payload.member.guild.roles, id=799646308285284352)
+            lol = discord.utils.get(
+                payload.member.guild.roles, id=710089814711468083)
+            lor = discord.utils.get(
+                payload.member.guild.roles, id=710090605031718993)
+            tft = discord.utils.get(
+                payload.member.guild.roles, id=710222045824286721)
+            wr = discord.utils.get(
+                payload.member.guild.roles, id=710222629931581452)
+            krunker = discord.utils.get(
+                payload.member.guild.roles, id=710222952037089399)
+            mc = discord.utils.get(
+                payload.member.guild.roles, id=710494243948462271)
+            paladins = discord.utils.get(
+                payload.member.guild.roles, id=713090663289323611)
+            valorant = discord.utils.get(
+                payload.member.guild.roles, id=718191255032561805)
+            csgo = discord.utils.get(
+                payload.member.guild.roles, id=718191138699214869)
+            gta = discord.utils.get(
+                payload.member.guild.roles, id=749553157427691580)
+            rainbow = discord.utils.get(
+                payload.member.guild.roles, id=749553249086079017)
+            rl = discord.utils.get(
+                payload.member.guild.roles, id=749553329943871631)
+            xxx = discord.utils.get(
+                payload.member.guild.roles, id=710498322531745803)
+            musik = discord.utils.get(
+                payload.member.guild.roles, id=716022697464955043)
             if str(payload.emoji) == "<:AmongUs:800642346734583838>":
                 await payload.member.add_roles(amongus)
             elif str(payload.emoji) == "<:OSU:800641854642061312>":
@@ -64,7 +82,7 @@ class ReactionCog(commands.Cog):
     ########################################################################################################################
 
     @commands.Cog.listener()
-    async def on_raw_reaction_remove(self,payload):
+    async def on_raw_reaction_remove(self, payload):
         if payload.channel_id == 710116001970257973:
             server = self.bot.get_guild(payload.guild_id)
             nutzer = server.get_member(payload.user_id)

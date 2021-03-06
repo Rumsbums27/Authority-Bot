@@ -10,25 +10,27 @@ class BanCog(commands.Cog):
     async def ban(self,ctx, member: discord.Member):
         if ctx.author.guild_permissions.ban_members:
             await member.ban()
-            banmess = discord.Embed(title='Moderator',
+            ban_message = discord.Embed(title='Moderator',
                                     description='User wurde gebannt.',
                                     color=0x00ff00)
-            await ctx.send(embed=banmess)
+            await ctx.send(embed=ban_message)
         else:
-            banerr = discord.Embed(title='Error',
+            missing_right_message = discord.Embed(title='Error',
                                    description='Dir fehlen die Berechtigungen diesen Befehl zu nutzen.',
                                    color=0xff0000)
-            await ctx.send(embed=banerr)
+            await ctx.send(embed=missing_right_message)
 
     @ban.error
     async def ban_error(self,ctx, error):
-        banerr1 = discord.Embed(title='Error',
+        # Embed for error ,,Member not found'' 
+        not_found_message = discord.Embed(title='Error',
                                 description='Member konnte nicht gefunden werden.',
                                 color=0xff0000)
-        banerr2 = discord.Embed(title='Error',
+        # Embed for error ,,Missing Parameter''
+        missing_param_message = discord.Embed(title='Error',
                                 description='Fehlendes Argument. `ban <Member>`',
                                 color=0xff0000)
         if isinstance(error, commands.BadArgument):
-            await ctx.send(embed=banerr1)
+            await ctx.send(embed=not_found_message)
         elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(embed=banerr2)
+            await ctx.send(embed=missing_param_message)

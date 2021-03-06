@@ -1,1 +1,5 @@
 config.json
+.vscode
+cogs/__pycache__/
+.idea/
+Auth2.png

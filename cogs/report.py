@@ -2,12 +2,13 @@ import discord
 from discord.ext import commands
 from pymongo import MongoClient
 
+
 class ReportCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command(aliases=['r'])
-    async def report(self,ctx, member: discord.Member, reason):
+    async def report(self, ctx, member: discord.Member, reason):
 
         cluster = MongoClient('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
         db = cluster['authority']
@@ -22,7 +23,8 @@ class ReportCog(commands.Cog):
             for x in reports:
                 current_reports = x['reports']
                 current_reports += 1
-                collection.update_one({'_id': f'{member}'}, {'$set': {'reports': current_reports}})
+                collection.update_one({'_id': f'{member}'}, {
+                                      '$set': {'reports': current_reports}})
 
         else:
             collection.insert_one({'_id': f'{member}', 'reports': 1})
@@ -31,18 +33,21 @@ class ReportCog(commands.Cog):
         reportmess = discord.Embed(title='User Report',
                                    description=f'{ctx.author} hat {member} gemeldet. Grund: {reason}',
                                    color=0xff0000)
-        reportmess.add_field(name=f'Originalnachricht von {ctx.author}', value=f'{ctx.message.content}', inline=False)
+        reportmess.add_field(
+            name=f'Originalnachricht von {ctx.author}', value=f'{ctx.message.content}', inline=False)
         await reportchannel.send(embed=reportmess)
 
     @report.error
-    async def report_error(self,ctx, error):
-        reporterr1 = discord.Embed(title='Error',
+    async def report_error(self, ctx, error):
+        # Embed for error ,,Member not found'' 
+        not_found_message = discord.Embed(title='Error',
                                    description='Der Member konnte nicht gefunden werden.',
                                    color=0xff0000)
-        reporterr2 = discord.Embed(title='Error',
+        # Embed for error ,,Missing Parameter''
+        missing_param_message = discord.Embed(title='Error',
                                    description='Fehlendes Argument. `report <Member> <Grund>`',
                                    color=0xff0000)
         if isinstance(error, commands.BadArgument):
-            await ctx.send(embed=reporterr1)
+            await ctx.send(embed=not_found_message)
         elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(embed=reporterr2)
+            await ctx.send(embed=missing_param_message)

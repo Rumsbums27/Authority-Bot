@@ -8,7 +8,7 @@ class WhichGameCog(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def whichgame(self,ctx):
+    async def whichgame(self, ctx):
         games = ["League of Legends",
                  "Among Us",
                  "Osu!",
@@ -25,7 +25,7 @@ class WhichGameCog(commands.Cog):
                  "Skribbl.io",
                  "Fortnite"]
         game = random.choice(games)
-        whichgamemess = discord.Embed(title="Was soll ich spielen?",
+        game_embed = discord.Embed(title="Was soll ich spielen?",
                                       description="Hier ein Vorschlag: " + game,
                                       color=0x00ffff)
-        await ctx.send(embed=whichgamemess)
+        await ctx.send(embed=game_embed)

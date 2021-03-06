@@ -17,7 +17,7 @@ class PingCog(commands.Cog):
             color = 0xff8000
         elif ping < 10:
             color = 0x00ff00
-        pingmess = discord.Embed(title='Ping',
+        ping_mess = discord.Embed(title='Ping',
                                  description=f'Die Latenz beträgt {ping}ms',
                                  color=color)
-        await ctx.send(embed=pingmess)
+        await ctx.send(embed=ping_mess)

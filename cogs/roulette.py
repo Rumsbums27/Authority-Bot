@@ -73,14 +73,14 @@ class RouletteCog(commands.Cog):
 
         # Wenn auf gerade gesetzt ist
         elif einsatz.lower() == 'gerade':
-            if number in gerade:
+            if number % 2 == 0:
                 await ctx.send(embed=win)
             else:
                 await ctx.send(embed=lose)
 
         # Wenn auf ungerade gesetzt ist
         elif einsatz.lower() == 'ungerade':
-            if number in ungerade:
+            if number % 2 != 0:
                 await ctx.send(embed=win)
             else:
                 await ctx.send(embed=lose)

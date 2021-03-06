@@ -18,7 +18,6 @@ from cogs.count import CountCog
 from cogs.reaction import ReactionCog
 from cogs.voice import VoiceCog
 from cogs.warn import WarnCog
-from cogs.points import PointsCog
 from cogs.modnews import ModNewsCog
 from cogs.musicstream import MusicStreamCog
 from cogs.calc import CalcCog
@@ -47,7 +46,6 @@ COGS = [
     ReactionCog,
     VoiceCog,
     WarnCog,
-    PointsCog,
     ModNewsCog,
     MusicStreamCog,
     CalcCog,
@@ -57,5 +55,5 @@ COGS = [
 ]
 
 disabled = [
-    TranslateCog
+    TranslateCog,
 ]

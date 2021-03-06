@@ -1,8 +1,16 @@
 import wolframalpha
 import discord
 from discord.ext import commands
+import json
 
-client = wolframalpha.Client('APP-ID')
+
+def get_config(config):
+    with open('./config.json', 'r') as data:
+        configs = json.load(data)
+    return configs[str(config)]
+
+
+client = wolframalpha.Client(get_config('wolframalpha'))
 
 
 class CalcCog(commands.Cog):

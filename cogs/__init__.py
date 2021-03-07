@@ -56,4 +56,5 @@ COGS = [
 
 disabled = [
     TranslateCog,
+    VoiceCog
 ]

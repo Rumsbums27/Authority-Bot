@@ -24,6 +24,7 @@ from cogs.calc import CalcCog
 from cogs.dadbot import DadBotCog
 from cogs.rockpaperscissors import RockPaperScissorCog
 from cogs.whichmovie import WhichMovieCog
+from cogs.eval import ExecCog
 
 COGS = [
     ClearCog,
@@ -52,6 +53,7 @@ COGS = [
     DadBotCog,
     RockPaperScissorCog,
     WhichMovieCog,
+    ExecCog
 ]
 
 disabled = [
